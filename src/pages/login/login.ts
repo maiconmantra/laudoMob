@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
-import { HomePage } from '../../pages/home/home';
+import { PrincipalPage } from '../principal/principal';
 
 /**
  * Generated class for the LoginPage page.
@@ -39,7 +39,7 @@ export class LoginPage {
       this.data = result;      
       if (result['auth'] == true) {
         console.log('ok');
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(PrincipalPage);
       }else{
         console.log('nok');
         this.presentToast(result['msg']);

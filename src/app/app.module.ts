@@ -10,12 +10,18 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { PrincipalPage } from '../pages/principal/principal';
+import { LaudosProvider } from '../providers/laudos/laudos';
+import { ClientesProvider } from '../providers/clientes/clientes';
+import { StatusProvider } from '../providers/status/status';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    PrincipalPage    
   ],
   imports: [
     BrowserModule,
@@ -26,13 +32,17 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    PrincipalPage
   ],
   providers: [
     StatusBar,
     SplashScreen,        
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider
+    AuthServiceProvider,
+    LaudosProvider,
+    ClientesProvider,
+    StatusProvider
   ]
 })
 export class AppModule {}
