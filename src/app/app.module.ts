@@ -15,6 +15,9 @@ import { LaudosProvider } from '../providers/laudos/laudos';
 import { ClientesProvider } from '../providers/clientes/clientes';
 import { StatusProvider } from '../providers/status/status';
 
+import { IonicStorageModule } from '@ionic/storage';
+import { SessionProvider } from '../providers/session/session';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { StatusProvider } from '../providers/status/status';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp,{ PrincipalPage }),
+    IonicStorageModule.forRoot({ name: 'localdb', driverOrder: ['indexeddb', 'sqlite', 'websql'] })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,7 +46,8 @@ import { StatusProvider } from '../providers/status/status';
     AuthServiceProvider,
     LaudosProvider,
     ClientesProvider,
-    StatusProvider
+    StatusProvider,
+    SessionProvider
   ]
 })
 export class AppModule {}

@@ -9,7 +9,7 @@
             <ion-list-header>Escolha os filtros:</ion-list-header>            
             <ion-item>
                 <ion-label stacked >Clientes</ion-label>                
-                <ion-select [(ngModel)]="selClientes" multiple="true" [selectOptions]="clientesAlertOpts">
+                <ion-select [(ngModel)]="selClientes" multiple="false" [selectOptions]="clientesAlertOpts">
                     <ion-option *ngFor="let o of clientes" [value]="o.id">{{o.nome_fantasia}}</ion-option>
                 </ion-select>
             </ion-item>            
@@ -28,26 +28,32 @@
                 </ion-select>
             </ion-item>  
             <ion-item>
-                <ion-label stacked>Termo de Busca</ion-label>
-                <ion-input placeholder="informe um texto"></ion-input>
+                <ion-grid>
+                    <ion-row>
+                      <ion-col col-6>
+                        <button ion-button full>Limpar</button>
+                      </ion-col>
+                      <ion-col col-6>
+                        <button ion-button full>Filtrar</button>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
             </ion-item>
         </ion-list>
-
-
     </ion-content>
 </ion-menu>
 
 <ion-menu [content]="content" id="menu-filter-graficos" >
-        <ion-header>
-            <ion-navbar color="primary">
-                <ion-title>Filtros</ion-title>
-            </ion-navbar>
-        </ion-header>
-        <ion-content>
-            <ion-list>
-                <ion-item menuClose detail-none>Close Menu Gráfico</ion-item>
-            </ion-list>            
-        </ion-content>
-    </ion-menu>
+    <ion-header>
+        <ion-navbar color="primary">
+            <ion-title>Filtros</ion-title>
+        </ion-navbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <ion-item menuClose detail-none>Close Menu Gráfico</ion-item>
+        </ion-list>            
+    </ion-content>
+</ion-menu>
 
-<ion-nav type="overlay" #content [root]="rootPage"></ion-nav>
+<ion-nav type="overlay" #content [root]="rootPage" (click)="menuOpened()" (ionClose)="menuClosed()"></ion-nav>

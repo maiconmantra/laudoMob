@@ -19,7 +19,10 @@ export class PrincipalPage {
   graficosRoot = 'GraficosPage'
   configuracoesRoot = 'ConfiguracoesPage'
 
+  
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController) {
+    
+  }
 
 }

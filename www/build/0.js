@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 278:
+/***/ 283:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LaudoPageModule", function() { return LaudoPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__laudo__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__laudo__ = __webpack_require__(288);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,14 +38,14 @@ var LaudoPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 283:
+/***/ 288:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LaudoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_laudos_laudos__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_laudos_laudos__ = __webpack_require__(204);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -103,12 +103,11 @@ var LaudoPage = /** @class */ (function () {
     };
     LaudoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-laudo',template:/*ion-inline-start:"C:\Users\Usuario\Desktop\projects\laudoMob\src\pages\laudo\laudo.html"*/'<!--\n  Generated template for the LaudoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="primary">\n    <ion-title>Laudos</ion-title>\n    <ion-buttons end>          \n        <button ion-button icon-only menuToggle>\n            <ion-icon name="options"></ion-icon>\n        </button>\n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n      <button ion-item *ngFor="let item of items">\n        <h3>{{ item.localizacao}}</h3>\n        <p>{{ item.equipamento}}</p>\n        <p>{{ item.tag}}</p>     \n        <button ion-button clear item-end >\n          <br><br>\n          <ion-icon name="square" color="nivel-{{item.id_niveis_alerta}}"></ion-icon>&nbsp;\n          {{ item.numero }}          \n        </button>\n      </button>\n    </ion-list>  \n</ion-content>\n'/*ion-inline-end:"C:\Users\Usuario\Desktop\projects\laudoMob\src\pages\laudo\laudo.html"*/,
+            selector: 'page-laudo',template:/*ion-inline-start:"C:\Users\Usuario\Desktop\projects\laudoMob\src\pages\laudo\laudo.html"*/'<!--\n  Generated template for the LaudoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="primary">\n    <ion-title>Laudos</ion-title>\n    <ion-buttons end>          \n        <button ion-button icon-only menuToggle>\n            <ion-icon name="options"></ion-icon>\n        </button>\n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-card *ngIf="items.length == 0">\n      <h3>Nenhum Laudos Encontrado, verifique os filtros!</h3>\n    </ion-card>\n    <ion-list *ngIf="items.length > 0"> \n      <button ion-item *ngFor="let item of items">\n        <h3>{{ item.localizacao}}</h3>\n        <p>{{ item.equipamento}}</p>\n        <p>{{ item.tag}}</p>     \n        <button ion-button clear item-end >\n          <br><br>\n          <ion-icon name="square" color="nivel-{{item.id_niveis_alerta}}"></ion-icon>&nbsp;\n          {{ item.numero }}          \n        </button>\n      </button>\n    </ion-list>\n    \n</ion-content>\n'/*ion-inline-end:"C:\Users\Usuario\Desktop\projects\laudoMob\src\pages\laudo\laudo.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* MenuController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_laudos_laudos__["a" /* LaudosProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_laudos_laudos__["a" /* LaudosProvider */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* MenuController */], __WEBPACK_IMPORTED_MODULE_2__providers_laudos_laudos__["a" /* LaudosProvider */]])
     ], LaudoPage);
     return LaudoPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=laudo.js.map

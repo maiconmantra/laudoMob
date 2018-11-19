@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController, MenuController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { PrincipalPage } from '../principal/principal';
+import { ActiveUser } from '../../app/models/model/activeuser';
+import { SessionProvider } from '../../providers/session/session';
 
 /**
  * Generated class for the LoginPage page.
@@ -16,20 +18,33 @@ import { PrincipalPage } from '../principal/principal';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
+  activeuser: ActiveUser;
   loading: any;
   loginData = { username:'', password:'' };
-  data: any;
+  
+  private _data: any;
+  
+  public get data(): any {
+    return this._data;
+  }
+  public set data(value: any) {
+    this._data = value;
+  }
 
   constructor( public navCtrl: NavController
              , public navParams: NavParams
              , public authService: AuthServiceProvider
              , public loadingCtrl: LoadingController
-             , private toastCtrl: ToastController) {
+             , public menu: MenuController
+             , private toastCtrl: ToastController
+             , private session: SessionProvider
+             ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    this.session.remove();        
+    this.menu.enable(false, 'menu-filter-laudos');
+    this.menu.enable(false, 'menu-filter-graficos');  
   }
 
   login() {
@@ -37,15 +52,13 @@ export class LoginPage {
     this.authService.login(this.loginData).then((result) => {
       this.loading.dismiss();      
       this.data = result;      
-      if (result['auth'] == true) {
-        console.log('ok');
+      if (result['auth'] == true) {     
+        this.session.create(result['usuario']);
         this.navCtrl.setRoot(PrincipalPage);
-      }else{
-        console.log('nok');
+      }else{        
         this.presentToast(result['msg']);
       }
-    }, (err) => {
-      console.log('nok2');
+    }, (err) => {      
       this.loading.dismiss();
       this.presentToast(err);
     });
@@ -71,5 +84,6 @@ export class LoginPage {
 
     toast.present();
   }
+ 
 
 }

@@ -11,9 +11,9 @@ export class LaudosProvider {
     console.log('Hello LaudosProvider Provider');
   }
 
-  getAll(id_cliente: any) {
+  getAll(id: any) {
     return new Promise((resolve, reject) => {
-      this.http.get(apiUrl+'laudos/'+ id_cliente)
+      this.http.get(apiUrl+'laudos/usuario/'+ id)
         .subscribe((result: any) => {
           resolve(result.json());
         },

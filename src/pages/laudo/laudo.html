@@ -19,7 +19,10 @@
 
 
 <ion-content padding>
-    <ion-list>
+    <ion-card *ngIf="items.length == 0">
+      <h3>Nenhum Laudos Encontrado, verifique os filtros!</h3>
+    </ion-card>
+    <ion-list *ngIf="items.length > 0"> 
       <button ion-item *ngFor="let item of items">
         <h3>{{ item.localizacao}}</h3>
         <p>{{ item.equipamento}}</p>
@@ -30,5 +33,6 @@
           {{ item.numero }}          
         </button>
       </button>
-    </ion-list>  
+    </ion-list>
+    
 </ion-content>
